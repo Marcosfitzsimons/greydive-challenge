@@ -12,13 +12,20 @@ const Test = ({ data }) => {
     test && (
       <section>
         <div className="max-w-[min(1100px,90%)] mx-auto py-6 flex flex-col items-center gap-3 text-zinc-100 lg:py-12 lg:gap-6 lg:items-start">
-          <h3 className="text-2xl font-semibold capitalize tracking-wider lg:text-5xl">
+          <h3 className="relative w-full text-center text-2xl font-semibold capitalize tracking-wider lg:text-5xl lg:text-start lg:pb-4">
             {test.cliente}
+            <span className="absolute left-0 -bottom-5 h-4 w-full border-b border-teal-500 shadow-lg shadow-teal-700/40"></span>
           </h3>
-          <h4 className="text-lg lg:text-2xl">
-            <span className="font-medium">Test:</span> Test de usabilidad en el
-            sitio web
-          </h4>
+          <div className="pt-6">
+            <p className="text-lg lg:text-2xl">
+              <span className="font-medium">Test:</span> Test de usabilidad en
+              el sitio web
+            </p>
+            <p className="text-lg lg:text-2xl">
+              <span className="font-medium">Tiempo: </span>
+              {test.timeTest} minutos
+            </p>
+          </div>
           <p className="text-lg font-medium lg:text-2xl">Testeador {test.id}</p>
           <div className="">
             <video

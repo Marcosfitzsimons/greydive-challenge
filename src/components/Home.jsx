@@ -12,7 +12,15 @@ const Home = ({ data }) => {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 1.1,
+        duration: 0.9,
+        ease: "backInOut",
+      },
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.95,
+      transition: {
+        duration: 0.5,
         ease: "backInOut",
       },
     },
@@ -28,6 +36,7 @@ const Home = ({ data }) => {
           variants={listVariants}
           initial="hidden"
           animate="visible"
+          exit="exit"
           className="bg-[#3d425033] p-10 rounded-xl border border-zinc-700/80 shadow-md shadow-zinc-600/10 hover:border-zinc-400 lg:p-14"
         >
           <ul className="flex flex-col items-center gap-4 lg:gap-6">

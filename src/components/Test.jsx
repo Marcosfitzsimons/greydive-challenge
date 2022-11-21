@@ -19,7 +19,15 @@ const Test = ({ data }) => {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 1.1,
+        duration: 0.9,
+        ease: "backInOut",
+      },
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.95,
+      transition: {
+        duration: 0.5,
         ease: "backInOut",
       },
     },
@@ -32,6 +40,7 @@ const Test = ({ data }) => {
           variants={testVariants}
           initial="hidden"
           animate="visible"
+          exit="exit"
           className="max-w-[min(1100px,90%)] mx-auto py-6 flex flex-col items-center gap-3 text-zinc-100 lg:py-12 lg:gap-6 lg:items-start"
         >
           <h3 className="w-full text-center text-3xl font-semibold capitalize tracking-wider lg:text-5xl lg:text-start">

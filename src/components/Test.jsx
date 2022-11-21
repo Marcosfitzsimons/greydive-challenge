@@ -1,17 +1,39 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import { motion } from "framer-motion";
 import Task from "./Task";
 
 const Test = ({ data }) => {
   const { id } = useParams();
+  // find the right test
   const test = data.find((el) => el.cliente === id);
 
   const newTranscription = test.transcripcion.split("<br>");
 
+  const testVariants = {
+    hidden: {
+      y: 20,
+      opacity: 0,
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 1.1,
+        ease: "backInOut",
+      },
+    },
+  };
+
   return (
     test && (
       <section>
-        <div className="max-w-[min(1100px,90%)] mx-auto py-6 flex flex-col items-center gap-3 text-zinc-100 lg:py-12 lg:gap-6 lg:items-start">
+        <motion.div
+          variants={testVariants}
+          initial="hidden"
+          animate="visible"
+          className="max-w-[min(1100px,90%)] mx-auto py-6 flex flex-col items-center gap-3 text-zinc-100 lg:py-12 lg:gap-6 lg:items-start"
+        >
           <h3 className="w-full text-center text-3xl font-semibold capitalize tracking-wider lg:text-5xl lg:text-start">
             {test.cliente}
           </h3>
@@ -68,7 +90,7 @@ const Test = ({ data }) => {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
     )
   );
